@@ -1,8 +1,7 @@
 # Build a small Go program
-FROM registry.access.redhat.com/ubi8/ubi:latest as builder
+FROM registry.ci.openshift.org/openshift/release:golang-1.17 as builder
 WORKDIR /build
 COPY . .
-RUN yum -y install go-toolset
 RUN go build hello-world.go
 
 FROM quay.io/cgwalters/fcos
